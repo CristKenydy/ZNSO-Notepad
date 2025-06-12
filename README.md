@@ -21,7 +21,7 @@
 ## Features
 
 - Easy and intuitive note-taking interface  
-- Supports adding and displaying images  
+- Supports adding and displaying images or video 
 - Lightweight and fast  
 - User-friendly design  
 
