@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="ZNSO_Notepad.Views.Layout.DebugConsole"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZNSO_Notepad.Views.Layout"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <ScrollViewer Background="White" VerticalScrollBarVisibility="Auto">
+        <DockPanel Margin="10">
+            <Border DockPanel.Dock="Top" CornerRadius="6" Background="#FF91C0FF">
+                <TextBlock Text="Debug Console"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="Black"
+                           Margin="0,10,0,10"
+                           HorizontalAlignment="Center"/>
+            </Border>
+            <ListBox x:Name="HistoryList"
+                     Background="#FFC1DBFF"
+                     Foreground="Black"
+                     BorderBrush="#FFCCCCCC"
+                     BorderThickness="1"
+                     Padding="5"
+                     ItemsSource="{Binding DebugItems}"
+                     Loaded="HistoryList_Loaded" >
+            </ListBox>
+        </DockPanel>
+    </ScrollViewer>
+</UserControl>

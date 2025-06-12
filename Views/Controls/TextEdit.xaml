@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ZNSO_Notepad.Views.Controls.TextEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             MinWidth="250" MinHeight="100"
+             Width="460" Height="300">
+    <UserControl.Effect>
+        <DropShadowEffect BlurRadius="10" Opacity="0.75" Color="#FF344761" ShadowDepth="3" RenderingBias="Quality"/>
+    </UserControl.Effect>
+
+    <Grid>
+        <!-- 外边框 -->
+        <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="6" Background="White">
+            <DockPanel>
+
+                <!-- 顶部标题栏 -->
+                <Border Background="#FF95C2FF" DockPanel.Dock="Top" Padding="4" CornerRadius="6">
+                    <TextBox x:Name="HeaderTextBox" Text="{Binding Header}" FontWeight="Bold"
+                               HorizontalAlignment="Center" Background="{x:Null}" KeyDown="HeaderTextBox_KeyDown" PreviewMouseLeftButtonDown="HeaderTextBox_PreviewMouseLeftButtonDown"/>
+                </Border>
+
+                <!-- 工具栏 -->
+                <ToolBar DockPanel.Dock="Top" Background="#FFF8F8F8">
+                    <ToggleButton Content="B" FontWeight="Bold" Click="Bold_Click" Width="25"/>
+                    <ToggleButton Content="I" FontStyle="Italic" Click="Italic_Click" Width="25"/>
+                    <Button Content="H1" Click="Header1_Click" Width="35"/>
+                    <Button Content="H2" Click="Header2_Click" Width="35"/>
+                    <Button Content="🗑" Click="Delete_Click" Width="35" ToolTip="Delete this control"/>
+                </ToolBar>
+
+
+                <!-- 富文本编辑框 -->
+                <RichTextBox x:Name="EditorBox"
+                             Margin="4"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             HorizontalScrollBarVisibility="Auto"
+                             SpellCheck.IsEnabled="True"
+                             BorderThickness="0"
+                             Background="Transparent"/>
+            </DockPanel>
+        </Border>
+
+        <!-- 缩放拖动手柄 -->
+        <Thumb x:Name="ResizeThumb"
+               Width="10" Height="10"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               Margin="2"
+               Cursor="SizeNWSE"
+               DragDelta="ResizeThumb_DragDelta"
+               Background="Gray"
+               Opacity="0.6"/>
+    </Grid>
+</UserControl>
