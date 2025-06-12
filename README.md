@@ -1,39 +1,40 @@
-### ZNSO Notepad - Created by **ZNSO Corporation**
+# 📝 ZNSO Notepad  
+_Created by **ZNSO Corporation**_
 
 ---
 
-> ⚠️ **Note:**  
-> This notepad is currently under development. Features may be unstable or incomplete. Please use with caution.  
+> ⚠️ **Important Notice:**  
+> This notepad is currently **under development**. Features may be unstable or incomplete. Please **use with caution**.  
 >
-> If you want to edit this notepad, please prepare the following system environment:  
-> - **Windows 10 or later**  
-> - **Visual Studio 2022 (version 17.14.x or later)**  
->   [Download Visual Studio 2022 17.14.x for free](https://visualstudio.microsoft.com/zh-hans/downloads/)  
-> - **.NET 9.0.300 SDK**  
+> If you wish to **edit or contribute** to this project, please ensure your system meets the following requirements:  
+> - 💻 **Operating System:** Windows 10 or later  
+> - 🛠️ **IDE:** Visual Studio 2022 (version 17.14.x or later)  
+>   [Download Visual Studio 2022](https://visualstudio.microsoft.com/zh-hans/downloads/)  
+> - ⚙️ **.NET SDK:** Version 9.0.300  
 >   [Download .NET 9.0.300 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 ---
 
-* A powerful notepad for easy and efficient note-taking
+## ✨ Features
+
+- ✍️ Easy and intuitive note-taking interface  
+- 🖼️ Supports inserting and displaying images or videos  
+- 🚀 Lightweight and fast  
+- 🎨 User-friendly and clean design  
 
 ---
 
-## Features
+## 🚀 How to Use
 
-- Easy and intuitive note-taking interface  
-- Supports adding and displaying images or video 
-- Lightweight and fast  
-- User-friendly design  
+1. Start writing your notes immediately.  
+2. To insert images or videos, use the integrated **IVBar** tool.
 
 ---
 
-## How to Use
+## ⌨️ Shortcut Keys
 
-1. Start writing your notes right away.  
-2. To insert an image or video, use IVBar.
+> - **Ctrl + N** — Create a new text editor tab in the workspace
 
 ---
 
-### Shortcut
-
-> - **Ctrl + N** — Create a new text editor in the workspace
+_Thank you for trying out ZNSO Notepad! Your feedback and contributions are highly appreciated._
