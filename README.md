@@ -8,9 +8,9 @@
 > If you want to edit this notepad, please prepare the following system environment:  
 > - **Windows 10 or later**  
 > - **Visual Studio 2022 (version 17.14.x or later)**  
->   [Download visual studio 2022 17.14.x for free]([https://visualstudio.microsoft.com/zh-hans/downloads/](https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false))  
-> - **.NET 9.0.300 SDK**
->   [Download .NET 9.0.300 SDK]([https://visualstudio.microsoft.com/zh-hans/downloads/](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-9.0.300-windows-x64-installer))  
+>   [Download Visual Studio 2022 17.14.x for free](https://visualstudio.microsoft.com/zh-hans/downloads/)  
+> - **.NET 9.0.300 SDK**  
+>   [Download .NET 9.0.300 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 ---
 
