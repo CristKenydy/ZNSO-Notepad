@@ -1,5 +1,6 @@
 # 📝 ZNSO Notepad  
 _Created by **ZNSO Corporation**_
+**This version was ZNSO Notepad v1.0.0 beta 2, Updated in Jume 23rd, 2025**
 
 ---
 
@@ -33,7 +34,8 @@ _Created by **ZNSO Corporation**_
 
 ## ⌨️ Shortcut Keys
 
-> - **Ctrl + N** — Create a new text editor tab in the workspace
+> - **Ctrl + N, T** — Create a new TextEdit tab in the workspace
+> - **Ctrl + N, I** — Create a new IVBar tab in the workspace
 
 ---
 
