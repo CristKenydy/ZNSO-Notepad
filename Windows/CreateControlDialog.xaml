@@ -1,0 +1,70 @@
+﻿<Window x:Class="ZNSO_Notepad.Windows.CreateControlDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZNSO_Notepad.Windows"
+        mc:Ignorable="d"
+        Title="CreateControlDialog" Height="310" Width="400"
+        ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="{x:Null}">
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Height="30" CornerRadius="5,5,0,0" Background="#FF28ACFF">
+            <Grid>
+                <TextBlock Text="Select a control to create"
+                           FontFamily="Consolas" FontWeight="Bold"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Width="25" Height="25"
+        HorizontalAlignment="Right"
+        Margin="0,0,5,0"
+        Content="❌"
+        IsCancel="True"
+        Cursor="Hand"
+        ToolTip="Close">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Background" Value="#FF28ACFF"/>
+                            <!-- 默认浅蓝色背景 -->
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="5"
+                                SnapsToDevicePixels="True">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="#FFCC3F3F"/>
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="#FF992020"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter TargetName="border" Property="Opacity" Value="0.5"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+            </Grid>
+        </Border>
+        <Border CornerRadius="0,0,5,5" Background="#FFA7DDFF">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <Button Margin="5,0,5,0" Height="30" Content="(_T) Text Edit" Click="newTEbutton_click"/>
+                <Button Margin="5,5,5,0" Height="30" Content="(_I)IV bar" Click="newIBbutton_click"/>
+            </StackPanel>
+        </Border>
+    </DockPanel>
+</Window>
