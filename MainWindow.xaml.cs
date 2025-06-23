@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
@@ -13,6 +13,7 @@ using System.Windows.Threading;
 using ZNSO.Notepad.Editor.Services;
 using ZNSO_Notepad.Services;
 using ZNSO_Notepad.Views.Controls;
+using ZNSO_Notepad.Windows;
 
 namespace ZNSO_Notepad
 {
@@ -36,8 +37,8 @@ namespace ZNSO_Notepad
         private bool _isDrawing;
         private FrameworkElement _previewElement;
 
-        private ObservableCollection<string> _historyLog;
-        private ObservableCollection<string> _debugLog;
+        public ObservableCollection<string> _historyLog;
+        public ObservableCollection<string> _debugLog;
 
         private Tools toolState;
         enum Tools
@@ -65,7 +66,7 @@ namespace ZNSO_Notepad
 
             Closing += WindowClosing;
 
-            CommandBindings.Add(new CommandBinding(ApplicationCommands.New, NewTextEdit_Executed));
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.New, NewControl_Executed));
             InputBindings.Add(new KeyBinding(ApplicationCommands.New, new KeyGesture(Key.T, ModifierKeys.Control | ModifierKeys.Shift)));
 
             _historyLog = new ObservableCollection<string>();
@@ -118,16 +119,13 @@ namespace ZNSO_Notepad
         private void BtnChangeTheme_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("打开主题设置窗口 (this version is not support)");
-            // TODO: 打开自定义主题设置界面
-            _debugLog.Add("Opened Theme Settings");
         }
 
         // 打开首选项设置
         private void BtnOpenPreferences_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("打开首选项设置 (this version is not support)");
-            // TODO: 打开 Preferences 设置界面
-            _debugLog.Add("Opened Preferences Settings");
+            OptionsDialog optionsDialog = new OptionsDialog();
+            optionsDialog.ShowDialog();
         }
 
         private void WindowClosing(object? sender, System.ComponentModel.CancelEventArgs e)
@@ -341,21 +339,20 @@ namespace ZNSO_Notepad
             _draggedElement = null;
         }
 
-        private void NewTextEdit_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void NewControl_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            CreateControlDialog controlDialog = new CreateControlDialog();
+            controlDialog.ShowDialog();
+        }
+
+        public void BtnAddTextEdit()
         {
             Point mousePosition = Mouse.GetPosition(WorkspaceCanvas);
             AddTextEditAt(mousePosition);
             _isDirty = true;
         }
 
-        private void BtnAddTextEdit_Click(object sender, RoutedEventArgs e)
-        {
-            Point mousePosition = Mouse.GetPosition(WorkspaceCanvas);
-            AddTextEditAt(mousePosition);
-            _isDirty = true;
-        }
-
-        private void BtnAddIVBar_Click(object sender, RoutedEventArgs e)
+        public void BtnAddIVBar()
         {
             Point mousePosition = Mouse.GetPosition(WorkspaceCanvas);
             AddIVBarAt(mousePosition);
