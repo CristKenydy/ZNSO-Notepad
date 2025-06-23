@@ -1,11 +1,11 @@
-﻿<Window x:Class="ZNSO_Notepad.MainWindow"
+<Window x:Class="ZNSO_Notepad.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:ZNSO_Notepad.Views.Controls"
         xmlns:layout="clr-namespace:ZNSO_Notepad.Views.Layout"
         Title="ZNSO Notepad"
         Height="800" Width="1200"
-        Background="#F0F7FF"
+        Background="#FFF6F0FF"
         WindowStartupLocation="CenterScreen">
     <Window.Effect>
         <BlurEffect x:Name="EFFECT_Blur" KernelType="Gaussian" Radius="5"/>
@@ -18,8 +18,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- 顶部菜单栏 -->
-        <Border Background="#E6F0FA"
+        <Border Grid.Row="0"
+                Background="#E6F0FA"
                 CornerRadius="0,0,8,8"
                 Margin="0,0,0,4"
                 BorderBrush="#C4DAEA" BorderThickness="0,0,0,1">
@@ -32,12 +32,6 @@
                     <MenuItem Header="💾 Save" Click="BtnSaveWorkspace_Click"/>
                     <Separator/>
                     <MenuItem Header="❌ Exit" Click="Close"/>
-                </MenuItem>
-                <MenuItem Header="✏️ Edit">
-                    <MenuItem Header="➕ Create Control">
-                        <MenuItem Header="📝 Text Editor" Click="BtnAddTextEdit_Click"/>
-                        <MenuItem Header="🖼️ Image/Video Viewer" Click="BtnAddIVBar_Click"/>
-                    </MenuItem>
                 </MenuItem>
                 <MenuItem Header="🔍 View">
                     <MenuItem Header="📜 Show History Board" Click="ShowHistoryBoard_Click"/>
@@ -56,7 +50,6 @@
             </Menu>
         </Border>
 
-        <!-- 主体内容区域 -->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -65,7 +58,6 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- 左侧工具栏 -->
             <Border Grid.Column="0"
                     Background="#DCEEFF"
                     BorderBrush="#B0CBE3"
@@ -91,25 +83,31 @@
                 </StackPanel>
             </Border>
 
-            <!-- 工作区 -->
             <ScrollViewer x:Name="WorkspaceScrollViewer"
                           Grid.Column="1"
                           Background="#EDF6FF"
                           PanningMode="Both"
                           HorizontalScrollBarVisibility="Auto"
                           VerticalScrollBarVisibility="Auto">
-                <Canvas x:Name="WorkspaceCanvas"
-                        Width="11334" Height="6398"
-                        Background="White"
-                        ClipToBounds="True"
-                        Margin="20"
-                        SnapsToDevicePixels="True"
-                        MouseLeftButtonDown="WorkspaceCanvas_MouseLeftButtonDown"
-                        MouseMove="WorkspaceCanvas_MouseMove"
-                        MouseLeftButtonUp="WorkspaceCanvas_MouseLeftButtonUp"/>
+                <Grid>
+                    <Canvas x:Name="WorkspaceCanvas"
+                            Width="11334" Height="6398"
+                            ClipToBounds="True"
+                            Margin="20"
+                            SnapsToDevicePixels="True"
+                            MouseLeftButtonDown="WorkspaceCanvas_MouseLeftButtonDown"
+                            MouseMove="WorkspaceCanvas_MouseMove"
+                            MouseLeftButtonUp="WorkspaceCanvas_MouseLeftButtonUp"/>
+
+                    <Canvas x:Name="SubWorkspaceCanvas"
+                            Width="11334" Height="6398"
+                            ClipToBounds="True"
+                            Margin="20"
+                            SnapsToDevicePixels="True"
+                            IsHitTestVisible="False"/>
+                </Grid>
             </ScrollViewer>
 
-            <!-- 分割条 -->
             <GridSplitter Grid.Column="2"
                           Width="5"
                           Background="#B0CBE3"
@@ -119,7 +117,6 @@
                           ShowsPreview="True"
                           Cursor="SizeWE"/>
 
-            <!-- 右侧内容面板 -->
             <ContentControl x:Name="RightPanelContent"
                             Grid.Column="3"
                             Background="#E6F0FA"
@@ -128,14 +125,12 @@
                             />
         </Grid>
 
-        <!-- 底部可变高度面板 -->
         <Grid Grid.Row="2" Height="200" Background="#E6F0FA">
             <Grid.RowDefinitions>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- Splitter -->
             <GridSplitter Grid.Row="0"
                           Height="5"
                           Background="#B0CBE3"
@@ -145,7 +140,6 @@
                           ShowsPreview="True"
                           Cursor="SizeNS"/>
 
-            <!-- 内容区域 -->
             <ContentControl x:Name="BottomPanelContent"
                             Grid.Row="1"
                             Background="#EDF6FF"
