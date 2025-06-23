@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ZNSO_Notepad.Windows
@@ -12,7 +12,7 @@ namespace ZNSO_Notepad.Windows
 
         private void ApplyTheme_Click(object sender, RoutedEventArgs e)
         {
-            App.ChangeTheme(ThemeComboBox.SelectedItem.ToString());
+            MessageBox.Show("This version of ZNSO Notepad does not support changing themes yet.", "Feature Unavailable", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
